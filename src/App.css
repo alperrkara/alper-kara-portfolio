@@ -1,7 +1,6 @@
 .page-shell {
   width: min(1440px, 100%);
   margin: 0 auto;
-  overflow-x: clip;
 }
 
 .reveal-up {
