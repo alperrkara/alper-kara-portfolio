@@ -74,10 +74,9 @@
   height: min(489px, 35vw);
   min-height: 280px;
   border-radius: 16px;
-  background:
-    linear-gradient(110deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 30%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.18)),
-    url('/assets/hero-texture.jpg') center 36% / cover no-repeat;
+  background-position: center 36%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero-copy {

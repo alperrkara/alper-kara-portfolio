@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import type { CSSProperties, MouseEvent } from 'react'
 import './App.css'
 
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
+
 const navItems = [
   { label: 'Projects', href: '#projects-page', kind: 'page' },
   { label: 'About', href: '#about', kind: 'section' },
@@ -20,21 +22,21 @@ const workItems = [
   {
     title: 'Tosla & Tosla Isim',
     client: '// Akode',
-    image: '/assets/work-tosla-home.png',
+    image: asset('assets/work-tosla-home.png'),
     alt: 'Tosla Isim dashboard and mobile app mockup on a dark background',
     size: 'small',
   },
   {
     title: 'Vibro, Ignite, Deploy',
     client: '// Bruel & Kjaer',
-    image: '/assets/work-phone.png',
+    image: asset('assets/work-phone.png'),
     alt: 'BKV Insite app mockup displayed on a mobile phone',
     size: 'medium',
   },
   {
     title: 'Tami',
     client: '// Garanti BBVA',
-    image: '/assets/project-tami.png',
+    image: asset('assets/project-tami.png'),
     alt: 'A hand holding the Tami mobile app interface',
     size: 'large',
   },
@@ -51,17 +53,17 @@ const socialLinks = [
   {
     href: 'https://www.linkedin.com/in/alperkra/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BuEpOW7%2FDT8iVPBzHLB6HGg%3D%3D',
     label: 'LinkedIn',
-    icon: '/assets/icon-linkedin.svg',
+    icon: asset('assets/icon-linkedin.svg'),
   },
   {
     href: 'https://dribbble.com/alperkra',
     label: 'Dribbble',
-    icon: '/assets/icon-dribbble.svg',
+    icon: asset('assets/icon-dribbble.svg'),
   },
   {
     href: 'https://medium.com/@alperkra',
     label: 'Medium',
-    icon: '/assets/icon-medium.svg',
+    icon: asset('assets/icon-medium.svg'),
   },
 ] as const
 
@@ -70,7 +72,7 @@ const serviceItems = [
     title: 'Product Design',
     description:
       'Creating user centered digital products by combining research, strategy, UX flows, and polished UI design into clear and functional experiences.',
-    image: '/assets/service-mobile.png',
+    image: asset('assets/service-mobile.png'),
     alt: 'Two mobile app mockups displayed on a dark background',
     accent: 'purple',
   },
@@ -78,7 +80,7 @@ const serviceItems = [
     title: 'Design Systems',
     description:
       'Building scalable and consistent design systems with reusable components, clear guidelines, and visual foundations that support efficient product development.',
-    image: '/assets/service-design-system.png',
+    image: asset('assets/service-design-system.png'),
     alt: 'A design system color palette board on a dark background',
     accent: 'light',
   },
@@ -86,7 +88,7 @@ const serviceItems = [
     title: 'AI Driven Design',
     description:
       'Designing intelligent and adaptive user experiences by integrating AI-powered features, automation, and emerging technologies into digital products.',
-    image: '/assets/service-web.png',
+    image: asset('assets/service-web.png'),
     alt: 'A dark themed website mockup displayed on a desktop monitor',
     accent: 'blue',
   },
@@ -120,7 +122,7 @@ const projectItems = [
   {
     title: 'Tami',
     client: '// Garanti BBVA',
-    image: '/assets/project-tami-thumb.png',
+    image: asset('assets/project-tami-thumb.png'),
     alt: 'A hand holding the Tami mobile app interface on a dark background',
     variant: 'featured',
     tone: 'dark',
@@ -128,7 +130,7 @@ const projectItems = [
   {
     title: 'Tosla & Tosla Isim',
     client: '// Akode',
-    image: '/assets/project-tosla-thumb.png',
+    image: asset('assets/project-tosla-thumb.png'),
     alt: 'Tosla Isim dashboard and mobile app mockup on a dark background',
     variant: 'featured',
     tone: 'dark',
@@ -136,7 +138,7 @@ const projectItems = [
   {
     title: 'Mecellem',
     client: '// New Mind AI',
-    image: '/assets/project-mecellem-thumb.png',
+    image: asset('assets/project-mecellem-thumb.png'),
     alt: 'Mecellem product presentation shown across layered laptop screens',
     variant: 'standard',
     tone: 'dark',
@@ -144,7 +146,7 @@ const projectItems = [
   {
     title: 'Vibro, Ignite, Deploy',
     client: '// Bruel & Kjaer',
-    image: '/assets/project-vibro-thumb.png',
+    image: asset('assets/project-vibro-thumb.png'),
     alt: 'BKV Insite app mockup displayed on a mobile phone',
     variant: 'standard',
     tone: 'dark',
@@ -152,7 +154,7 @@ const projectItems = [
   {
     title: 'SmartLight',
     client: '// Lotec',
-    image: '/assets/project-smartlight-thumb.png',
+    image: asset('assets/project-smartlight-thumb.png'),
     alt: 'SmartLight dashboard mockup displayed on a laptop in a dark scene',
     variant: 'standard',
     tone: 'dark',
@@ -160,7 +162,7 @@ const projectItems = [
   {
     title: 'PedalUp',
     client: '// AI Case',
-    image: '/assets/project-pedalup-thumb.png',
+    image: asset('assets/project-pedalup-thumb.png'),
     alt: 'PedalUp product mockup composed over a laptop in a dark scene',
     variant: 'standard',
     tone: 'dark',
@@ -176,6 +178,10 @@ function App() {
   )
   const [pendingHomeTarget, setPendingHomeTarget] = useState<string | null>(null)
   const currentExperience = experienceItems[activeExperience]
+  const heroTexture = asset('assets/hero-texture.jpg')
+  const heroImageStyle = {
+    backgroundImage: `linear-gradient(110deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 30%), linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.18)), url(${heroTexture})`,
+  }
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -375,7 +381,7 @@ function App() {
   const renderHomePage = () => (
     <main className="page-content" id="top">
       <section className="hero-section reveal-up" data-reveal>
-        <div className="hero-image" aria-hidden="true" />
+        <div className="hero-image" aria-hidden="true" style={heroImageStyle} />
         <div className="hero-copy">
           <div>
             <h1>Hi! I&apos;m Alper</h1>
@@ -435,7 +441,7 @@ function App() {
         <div className="about-card reveal-up reveal-delay-1" data-reveal>
           <img
             className="profile-image"
-            src="/assets/profile.png"
+            src={asset('assets/profile.png')}
             alt="Portrait of Alper Kara"
           />
 
@@ -487,14 +493,14 @@ function App() {
                 onClick={showPrevious}
                 aria-label="Previous experience"
               >
-                <img src="/assets/icon-arrow-left.svg" alt="" />
+                <img src={asset('assets/icon-arrow-left.svg')} alt="" />
               </button>
               <button
                 type="button"
                 onClick={showNext}
                 aria-label="Next experience"
               >
-                <img src="/assets/icon-arrow-right.svg" alt="" />
+                <img src={asset('assets/icon-arrow-right.svg')} alt="" />
               </button>
             </div>
           </div>
@@ -588,7 +594,7 @@ function App() {
           <p>Let&apos;s meet!</p>
         </div>
 
-        <img className="contact-band__sun" src="/assets/sun-footer.png" alt="" />
+        <img className="contact-band__sun" src={asset('assets/sun-footer.png')} alt="" />
       </section>
       {renderFooter()}
     </main>
@@ -598,7 +604,7 @@ function App() {
     <main className="projects-page">
       <section className="projects-hero reveal-up" data-reveal>
         <button className="projects-back" type="button" onClick={goHomeTo('#projects')}>
-          <img src="/assets/icon-back-projects.svg" alt="" />
+          <img src={asset('assets/icon-back-projects.svg')} alt="" />
           <span>Go back</span>
         </button>
 
