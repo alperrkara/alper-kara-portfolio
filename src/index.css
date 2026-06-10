@@ -25,6 +25,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -32,6 +33,7 @@ body {
   min-width: 320px;
   background: var(--color-bg);
   color: var(--color-ink);
+  overflow-x: hidden;
 }
 
 *,
@@ -85,4 +87,5 @@ h2 {
 
 #root {
   min-height: 100vh;
+  overflow-x: hidden;
 }

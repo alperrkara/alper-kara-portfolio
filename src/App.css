@@ -1,6 +1,7 @@
 .page-shell {
-  width: min(1440px, calc(100vw - 32px));
+  width: min(1440px, 100%);
   margin: 0 auto;
+  overflow-x: clip;
 }
 
 .reveal-up {
@@ -876,7 +877,7 @@
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     padding: 0 24px 10px 0;
-    margin-right: -24px;
+    width: 100%;
   }
 
   .services-grid::-webkit-scrollbar {
@@ -884,8 +885,10 @@
   }
 
   .services-intro {
-    max-width: 900px;
-    font-size: 32px;
+    max-width: 100%;
+    font-size: 18px;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
   }
 
   .service-card {
@@ -937,7 +940,7 @@
   }
 
   .services-shell {
-    width: calc(100vw - 72px);
+    width: calc(100% - 48px);
   }
 
   .contact-band {
@@ -1107,7 +1110,7 @@
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     padding: 0 20px 8px 0;
-    margin-right: -20px;
+    width: 100%;
   }
 
   .works-grid::-webkit-scrollbar {
@@ -1135,7 +1138,7 @@
   .services-grid {
     gap: 16px;
     padding: 0 20px 8px 0;
-    margin-right: -20px;
+    width: 100%;
   }
 
   .services-grid::-webkit-scrollbar {
@@ -1143,9 +1146,15 @@
   }
 
   .services-intro {
-    margin-bottom: 36px;
-    font-size: 24px;
-    line-height: 1.24;
+    margin-bottom: 28px;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    max-width: 100%;
+  }
+
+  .section-heading--dark h2 {
+    font-size: 16px;
   }
 
   .contact-band {
@@ -1176,7 +1185,7 @@
   }
 
   .services-shell {
-    width: calc(100vw - 40px);
+    width: calc(100% - 40px);
   }
 
   .site-footer__columns {
@@ -1211,7 +1220,7 @@
   }
 
   .service-card {
-    flex: 0 0 min(84vw, 413px);
+    flex: 0 0 min(82vw, 360px);
     width: auto;
     height: auto;
     min-height: 0;
@@ -1220,12 +1229,21 @@
   }
 
   .service-card__visual {
-    min-height: 240px;
+    min-height: 220px;
     padding: 20px 20px 16px;
   }
 
   .service-card__body {
     padding: 0 20px 22px;
+  }
+
+  .service-card__body h3 {
+    font-size: 16px;
+  }
+
+  .service-card__body p {
+    font-size: 14px;
+    line-height: 1.42;
   }
 
   .about-card {
@@ -1273,6 +1291,13 @@
 
   .experience-dots {
     align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-intro {
+    font-size: 13px;
+    line-height: 1.42;
   }
 }
 
