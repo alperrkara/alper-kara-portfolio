@@ -5,6 +5,15 @@
   overflow: visible;
 }
 
+.page-shell,
+.page-content,
+.projects-page,
+.project-detail-page {
+  height: auto;
+  max-height: none;
+  overflow-y: visible;
+}
+
 .reveal-up {
   opacity: 0;
   transform: translate3d(0, 42px, 0);
