@@ -868,12 +868,31 @@
   padding: 24px;
 }
 
+.project-detail-hero-media--cover {
+  padding: 0;
+}
+
+.project-detail-hero-media--bare {
+  padding: 0;
+  min-height: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
 .project-detail-hero-media img,
 .project-detail-gallery__card img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
+}
+
+.project-detail-hero-media--cover img {
+  object-fit: cover;
+}
+
+.project-detail-hero-media--bare img {
+  object-fit: cover;
 }
 
 .project-detail-copy {
@@ -1248,6 +1267,15 @@
   .project-detail-hero-media {
     min-height: 240px;
     padding: 18px;
+  }
+
+  .project-detail-hero-media--cover {
+    padding: 0;
+  }
+
+  .project-detail-hero-media--bare {
+    padding: 0;
+    min-height: 0;
   }
 
   .project-detail-section {

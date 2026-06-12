@@ -17,7 +17,37 @@ type Route =
   | { page: 'projects' }
   | { page: 'project'; slug: ProjectSlug }
 
-const projectDetails = {
+type ProjectDetail = {
+  slug: ProjectSlug
+  cardTitle: string
+  heroTitle: string
+  clientLabel: string
+  image: string
+  heroImage: string
+  alt: string
+  heroAlt: string
+  variant: 'featured' | 'standard'
+  tone: 'dark'
+  meta: {
+    client: string
+    role: string
+    timeline: string
+    date: string
+  }
+  detailImages?: {
+    header?: string
+    problemLeft?: string
+    problemRight?: string
+    solution?: string
+  }
+  heroMediaFit?: 'contain' | 'cover'
+  heroMediaStyle?: 'card' | 'bare'
+  about: string
+  problem: string
+  solution: string
+}
+
+const projectDetails: Record<ProjectSlug, ProjectDetail> = {
   tami: {
     slug: 'tami',
     cardTitle: 'Tami',
@@ -59,6 +89,13 @@ const projectDetails = {
       timeline: '1 year',
       date: '01/08/2024',
     },
+    detailImages: {
+      header: asset('assets/tosla-detail-header.png'),
+      problemLeft: asset('assets/tosla-detail-image-1.png'),
+      problemRight: asset('assets/tosla-detail-image-2.png'),
+      solution: asset('assets/tosla-detail-image-3.png'),
+    },
+    heroMediaFit: 'cover',
     about:
       'Tosla and Tosla İşim are fintech products designed for both B2C and B2B users. Tosla focuses on individual users through digital wallet, money transfer, payment, onboarding, and everyday financial management flows, while Tosla İşim supports business users with merchant-oriented payment solutions and operational processes. I was involved in UX/UI design, mobile interface design, product flows, design system consistency, and social media visuals, contributing to both the product experience and the brand’s digital communication.',
     problem:
@@ -83,6 +120,13 @@ const projectDetails = {
       timeline: '1.5 year',
       date: '01/06/2023',
     },
+    detailImages: {
+      header: asset('assets/mecellem-detail-header.png'),
+      problemLeft: asset('assets/mecellem-detail-image-1.png'),
+      problemRight: asset('assets/mecellem-detail-image-2.png'),
+      solution: asset('assets/mecellem-detail-image-3.png'),
+    },
+    heroMediaStyle: 'bare',
     about:
       'Mecellem is an AI-based legal tech product designed to help legal professionals manage, organize, analyze, and access legal information more efficiently. As a Product Designer, I worked closely with AI engineers and software developers to integrate AI-powered functionalities into user interfaces, simplify complex legal workflows, and create clear, user-centered experiences for legal software products.',
     problem:
@@ -881,8 +925,16 @@ function App() {
 
           <div className="project-detail-heading">
             <h1>{project.heroTitle}</h1>
-            <div className="project-detail-hero-media">
-              {project.heroImage ? (
+            <div
+              className={`project-detail-hero-media${
+                project.heroMediaFit === 'cover' ? ' project-detail-hero-media--cover' : ''
+              }${
+                project.heroMediaStyle === 'bare' ? ' project-detail-hero-media--bare' : ''
+              }`}
+            >
+              {project.detailImages?.header ? (
+                <img src={project.detailImages.header} alt={project.heroAlt} />
+              ) : project.heroImage ? (
                 <img src={project.heroImage} alt={project.heroAlt} />
               ) : null}
             </div>
@@ -917,8 +969,16 @@ function App() {
 
         <section className="project-detail-section reveal-up reveal-delay-1" data-reveal>
           <div className="project-detail-gallery project-detail-gallery--split">
-            <div className="project-detail-gallery__card" />
-            <div className="project-detail-gallery__card" />
+            <div className="project-detail-gallery__card">
+              {project.detailImages?.problemLeft ? (
+                <img src={project.detailImages.problemLeft} alt="" />
+              ) : null}
+            </div>
+            <div className="project-detail-gallery__card">
+              {project.detailImages?.problemRight ? (
+                <img src={project.detailImages.problemRight} alt="" />
+              ) : null}
+            </div>
           </div>
 
           <div className="project-detail-copy">
@@ -932,7 +992,11 @@ function App() {
 
         <section className="project-detail-section reveal-up reveal-delay-2" data-reveal>
           <div className="project-detail-gallery project-detail-gallery--single">
-            <div className="project-detail-gallery__card" />
+            <div className="project-detail-gallery__card">
+              {project.detailImages?.solution ? (
+                <img src={project.detailImages.solution} alt="" />
+              ) : null}
+            </div>
           </div>
 
           <div className="project-detail-copy">
