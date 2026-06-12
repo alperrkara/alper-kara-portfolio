@@ -5,6 +5,15 @@
   overflow: visible;
 }
 
+:root {
+  --shell-max-width: 1440px;
+  --page-gutter: 80px;
+  --full-bleed-content-offset: max(
+    var(--page-gutter),
+    calc((100vw - var(--shell-max-width)) / 2 + var(--page-gutter))
+  );
+}
+
 .page-shell,
 .page-content,
 .projects-page,
@@ -489,13 +498,13 @@
   margin-left: -50vw;
   margin-right: -50vw;
   background: #252525;
-  padding: 112px 0 96px;
+  padding: 112px var(--full-bleed-content-offset) 96px;
 }
 
 .services-shell {
   width: 100%;
   margin: 0;
-  padding: 0 80px;
+  padding: 0;
 }
 
 .services-intro {
@@ -598,7 +607,7 @@
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  padding: 63px 80px 86px;
+  padding: 63px var(--full-bleed-content-offset) 86px;
   background: #252525;
 }
 
@@ -1108,12 +1117,12 @@
   }
 
   .dark-panel {
-    padding: 88px 0 72px;
+    padding: 88px 24px 72px;
   }
 
   .services-shell {
     width: 100%;
-    padding: 0 24px;
+    padding: 0;
   }
 
   .contact-band {
@@ -1436,7 +1445,7 @@
 
   .services-shell {
     width: 100%;
-    padding: 0 20px;
+    padding: 0;
   }
 
   .site-footer__columns {
