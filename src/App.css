@@ -493,8 +493,9 @@
 }
 
 .services-shell {
-  width: min(1280px, calc(100vw - 192px));
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
+  padding: 0 80px;
 }
 
 .services-intro {
@@ -606,8 +607,8 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 32px;
-  width: min(1280px, 100%);
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
 }
 
 .site-footer__columns {
@@ -1111,7 +1112,8 @@
   }
 
   .services-shell {
-    width: calc(100% - 48px);
+    width: 100%;
+    padding: 0 24px;
   }
 
   .contact-band {
@@ -1433,7 +1435,8 @@
   }
 
   .services-shell {
-    width: calc(100% - 40px);
+    width: 100%;
+    padding: 0 20px;
   }
 
   .site-footer__columns {
