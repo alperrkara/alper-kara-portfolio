@@ -883,6 +883,15 @@
   border-radius: 16px;
 }
 
+.project-detail-gallery__card--bare {
+  border-radius: 0;
+  background: transparent;
+}
+
+.project-detail-gallery__card--rounded {
+  border-radius: 16px;
+}
+
 .project-detail-hero-media img,
 .project-detail-gallery__card img {
   width: 100%;

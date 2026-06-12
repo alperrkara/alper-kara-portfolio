@@ -43,6 +43,8 @@ type ProjectDetail = {
   heroMediaFit?: 'contain' | 'cover'
   heroMediaStyle?: 'card' | 'bare'
   heroMediaRadius?: 'none' | 'md'
+  solutionMediaStyle?: 'card' | 'bare'
+  solutionMediaRadius?: 'none' | 'md'
   about: string
   problem: string
   solution: string
@@ -152,6 +154,16 @@ const projectDetails: Record<ProjectSlug, ProjectDetail> = {
       timeline: '6 months',
       date: '01/12/2022',
     },
+    detailImages: {
+      header: asset('assets/vibro-detail-header.png'),
+      problemLeft: asset('assets/vibro-detail-image-1.png'),
+      problemRight: asset('assets/vibro-detail-image-2.png'),
+      solution: asset('assets/vibro-detail-image-3.png'),
+    },
+    heroMediaStyle: 'bare',
+    heroMediaRadius: 'md',
+    solutionMediaStyle: 'bare',
+    solutionMediaRadius: 'md',
     about:
       'Vibro Deploy and Ignite are industrial digital products for Brüel & Kjær Vibro, focused on machine monitoring, vibration analysis, sensor management, system setup, and operational control. I worked as a Product Designer across mobile, tablet, and desktop interfaces, designing dashboards, machine status screens, technical workflows, and responsive layouts. The main focus was turning complex industrial data and engineering processes into clear, structured, and usable digital experiences.',
     problem:
@@ -1003,7 +1015,15 @@ function App() {
 
         <section className="project-detail-section reveal-up reveal-delay-2" data-reveal>
           <div className="project-detail-gallery project-detail-gallery--single">
-            <div className="project-detail-gallery__card">
+            <div
+              className={`project-detail-gallery__card${
+                project.solutionMediaStyle === 'bare' ? ' project-detail-gallery__card--bare' : ''
+              }${
+                project.solutionMediaRadius === 'md'
+                  ? ' project-detail-gallery__card--rounded'
+                  : ''
+              }`}
+            >
               {project.detailImages?.solution ? (
                 <img src={project.detailImages.solution} alt="" />
               ) : null}
