@@ -42,6 +42,7 @@ type ProjectDetail = {
   }
   heroMediaFit?: 'contain' | 'cover'
   heroMediaStyle?: 'card' | 'bare'
+  heroMediaRadius?: 'none' | 'md'
   about: string
   problem: string
   solution: string
@@ -175,6 +176,14 @@ const projectDetails: Record<ProjectSlug, ProjectDetail> = {
       timeline: '6 months',
       date: '01/12/2022',
     },
+    detailImages: {
+      header: asset('assets/smartlight-detail-header.png'),
+      problemLeft: asset('assets/smartlight-detail-image-1.png'),
+      problemRight: asset('assets/smartlight-detail-image-2.png'),
+      solution: asset('assets/smartlight-detail-image-3.png'),
+    },
+    heroMediaStyle: 'bare',
+    heroMediaRadius: 'md',
     about:
       'Smartlight is a smart street lighting control platform focused on monitoring, managing, and optimizing urban lighting systems. I worked on the web dashboard experience, designing interfaces for real-time lighting control, scheduling, maintenance tracking, energy efficiency, and system status monitoring. The main goal was to simplify complex technical operations into a clear, scalable, and user-friendly interface.',
     problem:
@@ -930,6 +939,8 @@ function App() {
                 project.heroMediaFit === 'cover' ? ' project-detail-hero-media--cover' : ''
               }${
                 project.heroMediaStyle === 'bare' ? ' project-detail-hero-media--bare' : ''
+              }${
+                project.heroMediaRadius === 'md' ? ' project-detail-hero-media--rounded' : ''
               }`}
             >
               {project.detailImages?.header ? (

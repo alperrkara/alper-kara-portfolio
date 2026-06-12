@@ -879,6 +879,10 @@
   background: transparent;
 }
 
+.project-detail-hero-media--rounded {
+  border-radius: 16px;
+}
+
 .project-detail-hero-media img,
 .project-detail-gallery__card img {
   width: 100%;
@@ -888,10 +892,6 @@
 }
 
 .project-detail-hero-media--cover img {
-  object-fit: cover;
-}
-
-.project-detail-hero-media--bare img {
   object-fit: cover;
 }
 
