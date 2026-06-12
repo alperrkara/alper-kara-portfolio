@@ -43,6 +43,8 @@ type ProjectDetail = {
   heroMediaFit?: 'contain' | 'cover'
   heroMediaStyle?: 'card' | 'bare'
   heroMediaRadius?: 'none' | 'md'
+  problemMediaStyle?: 'card' | 'bare'
+  problemMediaRadius?: 'none' | 'md'
   solutionMediaStyle?: 'card' | 'bare'
   solutionMediaRadius?: 'none' | 'md'
   about: string
@@ -68,6 +70,18 @@ const projectDetails: Record<ProjectSlug, ProjectDetail> = {
       timeline: '6 months',
       date: '01/08/2025',
     },
+    detailImages: {
+      header: asset('assets/tami-detail-header.png'),
+      problemLeft: asset('assets/tami-detail-image-1.png'),
+      problemRight: asset('assets/tami-detail-image-2.png'),
+      solution: asset('assets/tami-detail-image-3.png'),
+    },
+    heroMediaStyle: 'bare',
+    heroMediaRadius: 'md',
+    problemMediaStyle: 'bare',
+    problemMediaRadius: 'md',
+    solutionMediaStyle: 'bare',
+    solutionMediaRadius: 'md',
     about:
       'Tami is a digital financial product within the Garanti BBVA ecosystem. I worked on its web and mobile interfaces as a UI Designer, focusing on improving product flows, visual hierarchy, navigation, UI consistency, and overall usability across the experience.',
     problem:
@@ -992,12 +1006,28 @@ function App() {
 
         <section className="project-detail-section reveal-up reveal-delay-1" data-reveal>
           <div className="project-detail-gallery project-detail-gallery--split">
-            <div className="project-detail-gallery__card">
+            <div
+              className={`project-detail-gallery__card${
+                project.problemMediaStyle === 'bare' ? ' project-detail-gallery__card--bare' : ''
+              }${
+                project.problemMediaRadius === 'md'
+                  ? ' project-detail-gallery__card--rounded'
+                  : ''
+              }`}
+            >
               {project.detailImages?.problemLeft ? (
                 <img src={project.detailImages.problemLeft} alt="" />
               ) : null}
             </div>
-            <div className="project-detail-gallery__card">
+            <div
+              className={`project-detail-gallery__card${
+                project.problemMediaStyle === 'bare' ? ' project-detail-gallery__card--bare' : ''
+              }${
+                project.problemMediaRadius === 'md'
+                  ? ' project-detail-gallery__card--rounded'
+                  : ''
+              }`}
+            >
               {project.detailImages?.problemRight ? (
                 <img src={project.detailImages.problemRight} alt="" />
               ) : null}
