@@ -558,7 +558,7 @@
 .contact-band {
   display: grid;
   grid-template-columns: minmax(320px, 522px) minmax(140px, 1fr) 227px;
-  align-items: end;
+  align-items: center;
   column-gap: 48px;
   row-gap: 24px;
   margin: 80px 0 40px;
@@ -589,6 +589,7 @@
 }
 
 .contact-band__sun {
+  grid-column: 3 / 4;
   width: 227px;
   height: 227px;
   flex: 0 0 227px;
