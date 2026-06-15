@@ -673,11 +673,6 @@ function App() {
         <p>Let&apos;s meet!</p>
       </div>
 
-      <a className="cta-link contact-band__link" href="mailto:alperkra@icloud.com">
-        <span>Get in touch</span>
-        <span aria-hidden="true">↗</span>
-      </a>
-
       <img className="contact-band__sun" src={asset('assets/sun-footer.png')} alt="" />
     </section>
   )
