@@ -967,6 +967,8 @@ function App() {
             <h1>{project.heroTitle}</h1>
             <div
               className={`project-detail-hero-media${
+                project.slug === 'pedalup' ? ' project-detail-hero-media--pedalup' : ''
+              }${
                 project.heroMediaFit === 'cover' ? ' project-detail-hero-media--cover' : ''
               }${
                 project.heroMediaStyle === 'bare' ? ' project-detail-hero-media--bare' : ''

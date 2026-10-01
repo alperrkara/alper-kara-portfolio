@@ -923,6 +923,10 @@
   object-fit: cover;
 }
 
+.project-detail-hero-media--pedalup {
+  height: clamp(350px, 40vw, 550px);
+}
+
 .project-detail-copy {
   display: flex;
   align-items: flex-start;
