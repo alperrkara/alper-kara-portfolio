@@ -235,6 +235,7 @@ const projectDetails: Record<ProjectSlug, ProjectDetail> = {
       date: '01/02/2026',
     },
     detailImages: {
+      problemLeft: asset('assets/pedalup-detail-left.png'),
       problemRight: asset('assets/pedalup-detail-right.png'),
       solution: asset('assets/pedalup-detail-solution.jpg'),
     },
