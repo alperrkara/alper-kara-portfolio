@@ -234,6 +234,9 @@ const projectDetails: Record<ProjectSlug, ProjectDetail> = {
       timeline: '4 months',
       date: '01/02/2026',
     },
+    detailImages: {
+      solution: asset('assets/pedalup-detail-solution.jpg'),
+    },
     about:
       'PedalUp is a concept bike sharing product that I developed as an end to end AI supported design project. I worked through the full process, starting from UX research, competitor analysis, personas, user journeys, and product flows, then continued with design system creation and UI design in Figma. The product includes key flows such as map based bike station discovery, QR code rental, navigation, ride tracking, bike return, and issue reporting. After completing the design, I used Codex to turn the concept into a functional digital prototype, exploring how AI can support the transition from design to development. This project reflects my interest in combining UX research, scalable design systems, polished interfaces, and AI assisted workflows to create more efficient and complete product experiences.',
     problem:
